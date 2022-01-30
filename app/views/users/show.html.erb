@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "layouts/profile", user: @user, book: Book.new %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <table class="table">
+        <thead>
+          <th>画像</th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </thead>
+        <tbody>
+          <% @user.books.each do |book| %>
+            <tr>
+              <td><%= image_tag book.user.image, size: "20x20" %></td>
+              <td><%= link_to book.title, book_path(book) %></td>
+              <td><%= book.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

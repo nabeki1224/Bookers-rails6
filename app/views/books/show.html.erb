@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "layouts/profile", user: @book.user, book: Book.new %>      
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><%= @book.user.name %></td>
+            <td><%= @book.title %></td>
+            <td><%= @book.body %></td>
+            <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success" %></td>
+            <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-danger" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
